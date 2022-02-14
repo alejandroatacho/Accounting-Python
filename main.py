@@ -7,6 +7,7 @@ x = 0
 x_average = 0
 y = 0
 y_average = 0
+
 df = pd.read_excel(r'Accounting-Python//files//Journal.xlsx')
 formule1 = df['Product'].values
 formule2 = df['Units'].values * df['Cost'].values
@@ -15,17 +16,27 @@ formule3 = df['Units_Sold'].values * df['Price'].values
 #unit * cost
 for i in df:
     print(formule2[x])
+    x_average = formule2[x] + x_average
     x = x+1
-    #x_average = formule2[x] + x_average
+
     if x == formule2.size:
+        print(str(x_average) + " Cost")
         break
 #unit_sold * price
 for i in df:
     print(formule3[y])
+    y_average = formule3[y] + y_average
     y = y+1
     if y == formule3.size:
+        print(str(y_average)+" Profit")
         break
-print(x_average)
+profit = y_average - x_average
+#profit = (y_average) - x_average
+# print(x_average)
+# print(y_average)
+print(str(profit) + " Profit made")
+#print("You made this much "+str(profit))
+
 # read the excel column and puts it out
 '''for i in df:
     print(formule1[x])
