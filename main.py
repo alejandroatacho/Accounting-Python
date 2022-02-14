@@ -15,26 +15,30 @@ formule3 = df['Units_Sold'].values * df['Price'].values
 
 #unit * cost
 for i in df:
-    print(formule2[x])
-    x_average = formule2[x] + x_average
+    # print(formule2[x])
+    x_average = int(formule2[x]) + x_average
     x = x+1
 
     if x == formule2.size:
-        print(str(x_average) + " Cost")
+        print(str(x_average) + "$ Cost")
         break
 #unit_sold * price
 for i in df:
-    print(formule3[y])
-    y_average = formule3[y] + y_average
+    # print(formule3[y])
+    y_average = int(formule3[y]) + y_average
     y = y+1
     if y == formule3.size:
-        print(str(y_average)+" Profit")
+        print(str(y_average)+"$ Profit")
         break
-profit = y_average - x_average
-#profit = (y_average) - x_average
-# print(x_average)
-# print(y_average)
-print(str(profit) + " Profit made")
+profit = y_average - (x_average)
+
+if profit >= 0:
+    print(str(profit) + "$ Profit Made")
+else:
+    print(str(profit) + "$ Was Lost")
+
+
+#print(str(profit) + " Profit made")
 #print("You made this much "+str(profit))
 
 # read the excel column and puts it out
